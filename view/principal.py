@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 from FNEA.image.Icones import outros
 
 
@@ -3257,4 +3258,9 @@ class Ui_MainWindow(object):
         self.groupBox_54.setTitle(_translate("MainWindow", "Cancelar"))
         self.label_21.setText(_translate("MainWindow", "SIN - SISTEMA INTEGRADO DE NOTIFICAÇÕES-FNEA"))
         self.btn_voltar_5.setToolTip(_translate("MainWindow", "<html><head/><body><p>RESUMO DA INVESTIGAÇÃO</p></body></html>"))
+        self.btn_fnea.clicked.connect(lambda: self.login)
 
+#     def login_Fnea(self):
+#         self.stackedWidget.setCurrentWidget(self.page_2)
+        
+        login = lambda self: self.stackedWidget.setCurrentWidget(self.page_2);
