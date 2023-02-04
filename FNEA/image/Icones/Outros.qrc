@@ -1,0 +1,47 @@
+<RCC>
+  <qresource prefix="Imagem">
+    <file>marketing-de-email (1).png</file>
+    <file>nova-mensagem (1).png</file>
+    <file>papel.png</file>
+    <file>marketing-de-email.png</file>
+    <file>novo_email.png</file>
+    <file>Peixe.jpg</file>
+    <file>Logo SIN.png</file>
+    <file>grafico-de-setores (1).png</file>
+    <file>composto.png</file>
+    <file>editar.png</file>
+    <file>editar-codigo.png</file>
+    <file>voltar.png</file>
+    <file>FNEA.jpg</file>
+    <file>relatorio-de-negocios.png</file>
+    <file>grafico-de-setores.png</file>
+    <file>adicionar-usuario.png</file>
+    <file>cancelamento.png</file>
+    <file>cancelar (1).png</file>
+    <file>check-out.png</file>
+    <file>dashboard (1).png</file>
+    <file>Dashboard Modern.png</file>
+    <file>dashboard.png</file>
+    <file>do-utilizador.png</file>
+    <file>historia.png</file>
+    <file>investigacao.png</file>
+    <file>login (1).png</file>
+    <file>masculino.png</file>
+    <file>paciente.png</file>
+    <file>pacientes.png</file>
+    <file>password.png</file>
+    <file>pdf (3).png</file>
+    <file>pesquisa-de-dados (1).png</file>
+    <file>prancheta.png</file>
+    <file>registro (1).png</file>
+    <file>registro.png</file>
+    <file>relatorio-de-negocios (1).png</file>
+    <file>remover (1).png</file>
+    <file>remover.png</file>
+    <file>resumo.png</file>
+    <file>salve-.png</file>
+    <file>user (1).png</file>
+    <file>user.png</file>
+    <file>user-profile.png</file>
+  </qresource>
+</RCC>
