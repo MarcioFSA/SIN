@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="Imagem">
+    <file>user_32x32.png</file>
+    <file>cadastro-branco.png</file>
+    <file>user.png</file>
     <file>marketing-de-email (1).png</file>
     <file>nova-mensagem (1).png</file>
     <file>papel.png</file>
