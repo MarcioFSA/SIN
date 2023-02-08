@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icones">
+    <file>grafico-de-setores.png</file>
+    <file>nova-mensagem (1).png</file>
+  </qresource>
+</RCC>

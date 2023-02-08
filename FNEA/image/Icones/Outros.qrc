@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="Imagem">
+    <file>marketing-de-email (1).png</file>
     <file>user_32x32.png</file>
     <file>cadastro-branco.png</file>
     <file>user.png</file>

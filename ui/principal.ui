@@ -60,7 +60,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout">
@@ -384,10 +384,10 @@ QPushButton#btn_rnc:pressed{
         </spacer>
        </item>
        <item row="0" column="3">
-        <widget class="QPushButton" name="btn_voltar_rnc">
+        <widget class="QPushButton" name="btn_voltar_fnea">
          <property name="minimumSize">
           <size>
-           <width>202</width>
+           <width>0</width>
            <height>40</height>
           </size>
          </property>
@@ -400,21 +400,24 @@ QPushButton#btn_rnc:pressed{
          <property name="font">
           <font>
            <family>Reem Kufi</family>
-           <pointsize>-1</pointsize>
            <italic>false</italic>
            <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">border-width: 2px;
-border-radius: 10px;
-border-color: black;
-font: bold 14px;
-min-width: 10em;
-padding: 6px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(0, 39,119, 219), stop:1 rgba(85, 98, 112, 226));
+          <string notr="true">QPushButton#btn_voltar_fnea{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477,stop:0 rgba(0, 39,119, 219), stop:1 rgba(85, 98, 112, 226));
 	color:rgba(255, 255, 255, 210);
-color: rgb(255, 255, 255);</string>
+	border-radius: 5px;
+}
+QPushButton#btn_voltar_fnea:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682,x2:1,y2:0.477, stop:0 rgba(150, 123, 111, 219), stop:1 rgba(85, 81, 84, 226));
+}
+QPushButton#btn_voltar_fnea:pressed{
+	padding-left:5px;
+	padding -top:5px;
+	background-color:rgba(150, 123, 111, 255);
+}</string>
          </property>
          <property name="text">
           <string>VOLTAR</string>
@@ -1623,6 +1626,31 @@ QPushButton#btn_sairApp:pressed{
             </layout>
            </item>
            <item>
+            <widget class="QLabel" name="logado">
+             <property name="minimumSize">
+              <size>
+               <width>111</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(207, 207, 207);</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
             <spacer name="horizontalSpacer_14">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1729,6 +1757,9 @@ QPushButton#btn_sairApp:pressed{
                 <set>Qt::AlignCenter</set>
                </property>
                <widget class="QPushButton" name="btn_notificar">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="geometry">
                  <rect>
                   <x>15</x>
@@ -1792,6 +1823,9 @@ QPushButton#btn_notificar:pressed{
                 </property>
                </widget>
                <widget class="QPushButton" name="btn_editarNoti">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="geometry">
                  <rect>
                   <x>75</x>
@@ -1853,7 +1887,7 @@ QPushButton#btn_editarNoti:pressed{
                </widget>
                <widget class="QPushButton" name="btn_buscarMv">
                 <property name="enabled">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                 <property name="geometry">
                  <rect>
@@ -1941,19 +1975,19 @@ QPushButton#btn_buscarMv:pressed{
                   <x>10</x>
                   <y>30</y>
                   <width>121</width>
-                  <height>20</height>
+                  <height>30</height>
                  </rect>
                 </property>
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
-                  <height>20</height>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
                   <width>167777</width>
-                  <height>20</height>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="font">
@@ -2060,7 +2094,7 @@ QPushButton#btn_pesquisarNoti:pressed{
                </property>
                <widget class="QPushButton" name="btn_relatorio">
                 <property name="enabled">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                 <property name="geometry">
                  <rect>
@@ -2759,7 +2793,7 @@ padding-bottom:7px</string>
                      </property>
                      <property name="dateTime">
                       <datetime>
-                       <hour>3</hour>
+                       <hour>15</hour>
                        <minute>0</minute>
                        <second>0</second>
                        <year>2022</year>
@@ -3048,7 +3082,7 @@ padding-bottom:7px</string>
                      </property>
                      <property name="dateTime">
                       <datetime>
-                       <hour>3</hour>
+                       <hour>15</hour>
                        <minute>0</minute>
                        <second>0</second>
                        <year>2022</year>
@@ -3238,7 +3272,7 @@ padding-bottom:7px</string>
                          </property>
                          <property name="dateTime">
                           <datetime>
-                           <hour>3</hour>
+                           <hour>15</hour>
                            <minute>0</minute>
                            <second>0</second>
                            <year>2022</year>
@@ -3326,7 +3360,7 @@ padding-bottom:7px</string>
                          </property>
                          <property name="dateTime">
                           <datetime>
-                           <hour>3</hour>
+                           <hour>15</hour>
                            <minute>0</minute>
                            <second>0</second>
                            <year>2022</year>
@@ -3379,7 +3413,7 @@ padding-bottom:7px</string>
                 </size>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="tab_3">
                 <attribute name="title">
@@ -7620,150 +7654,6 @@ QPushButton#btn_voltar_5:pressed{
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>40</y>
-          <width>124</width>
-          <height>63</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_11">
-         <item>
-          <widget class="QGroupBox" name="groupBox_58">
-           <property name="minimumSize">
-            <size>
-             <width>58</width>
-             <height>61</height>
-            </size>
-           </property>
-           <property name="title">
-            <string>Novo</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <widget class="QPushButton" name="btn_novoEmail">
-            <property name="geometry">
-             <rect>
-              <x>13</x>
-              <y>26</y>
-              <width>30</width>
-              <height>30</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>30</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton#btn_novoEmail{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(0, 39,119, 219), stop:1 rgba(85, 98, 112, 226));
-	color:rgba(255, 255, 255, 210);
-	border-radius: 5px;
-}
-QPushButton#btn_novoEmail:hover{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682,x2:1,y2:0.477, stop:0 rgba(150, 123, 111, 219), stop:1 rgba(85, 81, 84, 226));
-}
-QPushButton#btn_novoEmail:pressed{
-	padding-left:5px;
-	padding -top:5px;
-	background-color:rgba(150, 123, 111, 255);
-}</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../FNEA/image/Icones/Outros.qrc">
-              <normaloff>:/Imagem/nova-mensagem (1).png</normaloff>:/Imagem/nova-mensagem (1).png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>24</width>
-              <height>24</height>
-             </size>
-            </property>
-           </widget>
-          </widget>
-         </item>
-         <item>
-          <widget class="QGroupBox" name="groupBox_59">
-           <property name="minimumSize">
-            <size>
-             <width>58</width>
-             <height>61</height>
-            </size>
-           </property>
-           <property name="title">
-            <string>Alterar</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <widget class="QPushButton" name="btn_alterar_email">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>24</y>
-              <width>30</width>
-              <height>30</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>30</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton#btn_alterar_email{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(0, 39,119, 219), stop:1 rgba(85, 98, 112, 226));
-	color:rgba(255, 255, 255, 210);
-	border-radius: 5px;
-}
-QPushButton#btn_alterar_email:hover{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682,x2:1,y2:0.477, stop:0 rgba(150, 123, 111, 219), stop:1 rgba(85, 81, 84, 226));
-}
-QPushButton#btn_alterar_email:pressed{
-	padding-left:5px;
-	padding -top:5px;
-	background-color:rgba(150, 123, 111, 255);
-}</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../FNEA/image/Icones/Outros.qrc">
-              <normaloff>:/Imagem/papel.png</normaloff>:/Imagem/papel.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>24</width>
-              <height>24</height>
-             </size>
-            </property>
-           </widget>
-          </widget>
-         </item>
-        </layout>
-       </widget>
        <widget class="QGroupBox" name="groupBox_60">
         <property name="geometry">
          <rect>
@@ -7901,6 +7791,216 @@ QPushButton#btn_pesquisa_email:pressed{
               <string>Email</string>
              </property>
             </column>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>61</x>
+          <y>40</y>
+          <width>188</width>
+          <height>63</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QGroupBox" name="groupBox_58">
+           <property name="minimumSize">
+            <size>
+             <width>58</width>
+             <height>61</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Novo</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <widget class="QPushButton" name="btn_novoEmail">
+            <property name="geometry">
+             <rect>
+              <x>13</x>
+              <y>26</y>
+              <width>30</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton#btn_novoEmail{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(0, 39,119, 219), stop:1 rgba(85, 98, 112, 226));
+	color:rgba(255, 255, 255, 210);
+	border-radius: 5px;
+}
+QPushButton#btn_novoEmail:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682,x2:1,y2:0.477, stop:0 rgba(150, 123, 111, 219), stop:1 rgba(85, 81, 84, 226));
+}
+QPushButton#btn_novoEmail:pressed{
+	padding-left:5px;
+	padding -top:5px;
+	background-color:rgba(150, 123, 111, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../FNEA/image/Icones/Outros.qrc">
+              <normaloff>:/Imagem/nova-mensagem (1).png</normaloff>:/Imagem/nova-mensagem (1).png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_59">
+           <property name="minimumSize">
+            <size>
+             <width>58</width>
+             <height>61</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Alterar</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <widget class="QPushButton" name="btn_alterar_email">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>24</y>
+              <width>30</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton#btn_alterar_email{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(0, 39,119, 219), stop:1 rgba(85, 98, 112, 226));
+	color:rgba(255, 255, 255, 210);
+	border-radius: 5px;
+}
+QPushButton#btn_alterar_email:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682,x2:1,y2:0.477, stop:0 rgba(150, 123, 111, 219), stop:1 rgba(85, 81, 84, 226));
+}
+QPushButton#btn_alterar_email:pressed{
+	padding-left:5px;
+	padding -top:5px;
+	background-color:rgba(150, 123, 111, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../FNEA/image/Icones/Outros.qrc">
+              <normaloff>:/Imagem/papel.png</normaloff>:/Imagem/papel.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_74">
+           <property name="minimumSize">
+            <size>
+             <width>58</width>
+             <height>61</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Excluir</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <widget class="QPushButton" name="btn_excluir_email">
+            <property name="geometry">
+             <rect>
+              <x>13</x>
+              <y>24</y>
+              <width>30</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton#btn_alterar_email{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(0, 39,119, 219), stop:1 rgba(85, 98, 112, 226));
+	color:rgba(255, 255, 255, 210);
+	border-radius: 5px;
+}
+QPushButton#btn_alterar_email:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682,x2:1,y2:0.477, stop:0 rgba(150, 123, 111, 219), stop:1 rgba(85, 81, 84, 226));
+}
+QPushButton#btn_alterar_email:pressed{
+	padding-left:5px;
+	padding -top:5px;
+	background-color:rgba(150, 123, 111, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../FNEA/image/Icones/Outros.qrc">
+              <normaloff>:/Imagem/remover.png</normaloff>:/Imagem/remover.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
            </widget>
           </widget>
          </item>
@@ -8406,7 +8506,7 @@ QPushButton#btn_SairApp:pressed{
       </widget>
      </widget>
      <widget class="QWidget" name="page_8">
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>111</x>
@@ -8491,7 +8591,7 @@ QPushButton#btn_dashboard:pressed{
             <string extracomment="Dashboard"/>
            </property>
            <property name="icon">
-            <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+            <iconset>
              <normaloff>:/Imagens/dashboard (1).png</normaloff>:/Imagens/dashboard (1).png</iconset>
            </property>
            <property name="iconSize">
@@ -8576,7 +8676,7 @@ QPushButton#btn_rnc:pressed{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+            <iconset>
              <normaloff>:/Imagens/registro-online.png</normaloff>:/Imagens/registro-online.png</iconset>
            </property>
            <property name="iconSize">
@@ -8636,7 +8736,7 @@ QPushButton#btn_usuarios:pressed{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+            <iconset>
              <normaloff>:/Imagens/password.png</normaloff>:/Imagens/password.png</iconset>
            </property>
            <property name="iconSize">
@@ -8721,7 +8821,7 @@ QPushButton#btn_tratativa:pressed{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+            <iconset>
              <normaloff>:/Imagens/investigacao.png</normaloff>:/Imagens/investigacao.png</iconset>
            </property>
            <property name="iconSize">
@@ -8809,7 +8909,7 @@ QPushButton#btn_consultar:pressed{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+            <iconset>
              <normaloff>:/Imagens/pesquisa-de-dados (1).png</normaloff>:/Imagens/pesquisa-de-dados (1).png</iconset>
            </property>
            <property name="iconSize">
@@ -9005,7 +9105,7 @@ QPushButton#btn_sairApp:pressed{
       </widget>
      </widget>
      <widget class="QWidget" name="page_9">
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>29</x>
@@ -9251,7 +9351,7 @@ Cláusula e Requisitos: Identificar o requisito pertinente e desenvolver um brev
               <property name="title">
                <string>Turno de ocorrência da Não conformidade</string>
               </property>
-              <widget class="QWidget" name="">
+              <widget class="QWidget" name="layoutWidget">
                <property name="geometry">
                 <rect>
                  <x>20</x>
@@ -9409,7 +9509,7 @@ border-bottom-right-radius : 3px;
                </property>
                <property name="dateTime">
                 <datetime>
-                 <hour>3</hour>
+                 <hour>15</hour>
                  <minute>0</minute>
                  <second>0</second>
                  <year>2022</year>
@@ -9582,7 +9682,7 @@ border-bottom-right-radius : 3px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>275</x>
@@ -9662,7 +9762,7 @@ QPushButton#btn_nova_rnc:pressed{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+            <iconset>
              <normaloff>:/Imagens/registro.png</normaloff>:/Imagens/registro.png</iconset>
            </property>
            <property name="iconSize">
@@ -9747,7 +9847,7 @@ QPushButton#btn_gerar_pdf:pressed{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+            <iconset>
              <normaloff>:/Imagens/pdf (3).png</normaloff>:/Imagens/pdf (3).png</iconset>
            </property>
            <property name="iconSize">
@@ -9764,7 +9864,7 @@ QPushButton#btn_gerar_pdf:pressed{
           <property name="title">
            <string>Pesquisar não conformidade</string>
           </property>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>40</x>
@@ -9852,7 +9952,7 @@ QPushButton#btn_pesquisar_rnc:pressed{
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+               <iconset>
                 <normaloff>:/Imagens/historia.png</normaloff>:/Imagens/historia.png</iconset>
               </property>
               <property name="iconSize">
@@ -9910,7 +10010,7 @@ QPushButton#btn_salva_rnc:pressed{
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+             <iconset>
               <normaloff>:/Imagens/salve-.png</normaloff>:/Imagens/salve-.png</iconset>
             </property>
             <property name="iconSize">
@@ -9962,7 +10062,7 @@ QPushButton#btn_cancela_rnc:pressed{
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../../Estudos/RNC/imagens/Imagens.qrc">
+             <iconset>
               <normaloff>:/Imagens/cancelar (1).png</normaloff>:/Imagens/cancelar (1).png</iconset>
             </property>
             <property name="iconSize">
@@ -9996,7 +10096,7 @@ QPushButton#btn_cancela_rnc:pressed{
  </widget>
  <resources>
   <include location="../FNEA/image/Icones/Outros.qrc"/>
-  <include location="../../../Estudos/RNC/imagens/Imagens.qrc"/>
+  <include location="../FNEA/image/Icones/adicional.qrc"/>
  </resources>
  <connections/>
 </ui>
