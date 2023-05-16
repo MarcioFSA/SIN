@@ -25,6 +25,8 @@ def habilitarNotificar(self):
     self.dt_nascimento.text()
     self.cb_sex.setCurrentIndex(-1)
     self.cb_seto.setCurrentIndex(-1)
+    self.cb_seto_2.setCurrentIndex(-1)
+    self.cb_seto_2.setEnabled(True)
     self.txt_leit.clear()
     self.dt_internacao.text
     self.txt_diagnostic.clear()
@@ -157,6 +159,15 @@ def desabilitarLimparCampos(self):
     self.chk_nsp.setCheckState(False)
 
     self.cb_rac.setCurrentIndex(-1)
+    self.cb_seto_2.setCurrentIndex(-1)
+    self.ds_outros.clear()
+    self.txt_oque.clear()
+    self.txt_porque.clear()
+    self.txt_rquem.clear()
+    self.txt_rquando.clear()
+    self.txt_rcomo.clear()
+    self.txt_rconclusao.clear()
+    
 
     self.dt_evento.text()
     self.dt_internacao.text()
@@ -192,16 +203,18 @@ def desabilitarLimparCampos(self):
     self.txt_quem.clear()
     self.txt_acao.clear()
     self.txt_identificacao.clear()
+    
     self.rb_mt.setEnabled(False)
     self.rb_sn.setEnabled(False)
     self.btn_alterar.setEnabled(False)
 
-    #        self.rb_sn.setEnabled(False)
+    #        self.rb_sn.setEnabled(False)rb_dano_simcj
 
     self.txt_codPacient.setEnabled(False)
     self.dt_nascimento.setEnabled(False)
     self.cb_sex.setEnabled(False)
     self.cb_seto.setEnabled(False)
+    self.cb_seto_2.setEnabled(False)
     self.txt_leit.setEnabled(False)
     self.dt_internacao.setEnabled(False)
     self.txt_diagnostic.setEnabled(False)
@@ -256,12 +269,9 @@ def desabilitarLimparCampos(self):
     self.btn_pesquisarNoti.setEnabled(True)
     self.txt_consultaNoti.setEnabled(True)
   
-
-   
-
-
 def editandoNotificacao(self):
     self.cb_seto.setEnabled(True)
+    self.cb_seto_2.setEnabled(True)
     self.txt_leit.setEnabled(True)
     self.dt_internacao.setEnabled(True)
     self.txt_diagnostic.setEnabled(True)
@@ -331,6 +341,7 @@ def salvarNotificacao(self):
     tratamento = self.txt_tratamento.text()
     dt_evento = self.dt_evento.text()
     dt_notificacao = self.dt_notificacao.text()
+    setor_ocorrencia = self.cb_seto_2.currentText()
 
     if self.rb_mt.isChecked() == True:
             sn_mt = 'MT'
@@ -366,25 +377,28 @@ def salvarNotificacao(self):
     ck24 = str(self.ck_sentinela_2.isChecked())
     ck25 = str(self.ck_queimadura_2.isChecked())
     dsc_ocorrencia = self.txt_ocorrencia.toPlainText()
+    
 
+    # if self.rb_mt.isChecked() == False and self.rb_sn.isChecked() == False:
+    #         msg = QMessageBox()
+    #         msg.setWindowTitle("AVISO")
+    #         # msg.setIcon(QMessageBox.critical)
+    #         msg.setText("INFORME SE MT OU SN")
+    #         msg.exec()
     if self.rb_dano_sim.isChecked() == True:
              pg_dano = 'SIM'
     elif self.rb_dano_nao.isChecked() == True:
              pg_dano = 'NÃO'
-
-    else:
+    elif self.rb_dano_SI.isChecked() == True:
              pg_dano = 'S.I'
-
         
-    if self.rb_dano_sim.isChecked() == False and self.rb_dano_nao.isChecked() == False:
+    if self.rb_dano_sim.isChecked() == False and self.rb_dano_nao.isChecked() == False and self.rb_dano_SI.isChecked() == False:
             msg = QMessageBox()
             msg.setWindowTitle("AVISO")
             # msg.setIcon(QMessageBox.critical)
-            msg.setText("INFORME O TURNO DA OCORRÊNCIA")
+            msg.setText("INFORME SE OCORREU ALGUM DANO")
             msg.exec()
     else:
-
-        
             escala = self.cb_dan.currentText()
             if self.rb_dano_nao.isChecked(): escala = 'SEM DANOS' 
             como = self.txt_como.toPlainText()
@@ -493,6 +507,14 @@ def salvarNotificacao(self):
                 msg.exec()
                 return False
             
+            elif self.rb_mt.isChecked() == False and self.rb_sn.isChecked() == False:
+                msg = QMessageBox()
+                msg.setWindowTitle("AVISO")
+                # msg.setIcon(QMessageBox.critical)
+                msg.setText("INFORME SE MT OU SN")
+                msg.exec()
+                return False
+            
             #######################FIM VALIDAÇÃO CAMPOS NULOS FORM NOTIFICAÇÃO###############################
 
             else:
@@ -508,12 +530,10 @@ def salvarNotificacao(self):
 
                 banco =self.comboBox_2.currentText()
                 con = conexaoBD(bd = banco)
-
-            
                 
                 con.manipular(
-                    "INSERT INTO notificacao (user_cad, cd_paciente,nm_paciente,data_nasc,sexo,raca_cor, setor, leito, dt_internacao, diagnostico, tratamento, dt_evento, dt_notificacao, cb_nsp,cb_fh_identi_pac, cb_fh_comunic_pac, cb_fh_uso_oxig_out_gases, cb_fh_manu_ident_cate_sond, cb_fh_administ_nutricao, cb_fh_administ_hemocomp, cb_fh_administ_medicament, cb_fh_transport_usuario, cb_fh_procedimen_cirurgico, cb_fh_procedimen_aneste, cb_fh_uso_disposit_equip, cb_queda_pac_hospitaliza, cb_outros, ds_outros, cb_ulcera_press_durant_inter, cb_infecc_associa_assist_saude, cb_higiene_maos_inadequada, cb_higiene_precaria_pac, cb_trauma_neonato, cb_trauma_obstetrico_parto_vag, cb_trauma_obstetrico_cesariana, cb_atraso_atendime, cb_conflito, cb_evasao_pac, cb_evento_sentinela, cb_queimadura_pos_preocedi, ds_ocorrencia, como_foi_identicado, identificador, acao_tomada, pg_dano,escala_dano,identificacao_dano,sn_mt,dt_hr_cadastro) VALUES ('"+user+"','" + cd_paciente + "','" + nm_paciente + "','" + dt_nasc_formatada + "','" + sexo + "','" + raca_cor + "','" + setor + "','" + leito + "','" + str(dt_inter_formatada) + "','" + diagnostico + "','" + tratamento + "','" + str(dt_even_formatada) + "','" + str(dt_noti_formatada) + "','" + ck_nsp_ + "','" + ck1 + "', '" + ck2 + "', '" + ck3 +"', '" + ck4 + "', '" + ck5 + "', '" + ck6 + "', '" + ck7 + "', '" + ck8 + "', '" + ck9 + "', '" + ck10 + "', '" + ck11 + "', '" + ck12 + "', '" + ck13 + "','" + ds_outros + "' ,'" + ck14 + "', '" + ck15 + "', '" + ck16 + "', '" + ck17 + "', '" + ck18 +
-                    "', '" + ck19 + "', '" + ck20 + "', '" + ck21 + "', '" + ck22 + "', '" + ck23 + "', '" + ck24 + "', '" + ck25 + "', '" + dsc_ocorrencia + "', '" + como + "', '" + quem + "', '" + acao + "','" + pg_dano + "', '" + escala + "', '" + ident + "','" + sn_mt + "', NOW())")
+                    "INSERT INTO notificacao (user_cad, cd_paciente,nm_paciente,data_nasc,sexo,raca_cor, setor, leito, dt_internacao, diagnostico, tratamento, dt_evento, dt_notificacao, cb_nsp,cb_fh_identi_pac, cb_fh_comunic_pac, cb_fh_uso_oxig_out_gases, cb_fh_manu_ident_cate_sond, cb_fh_administ_nutricao, cb_fh_administ_hemocomp, cb_fh_administ_medicament, cb_fh_transport_usuario, cb_fh_procedimen_cirurgico, cb_fh_procedimen_aneste, cb_fh_uso_disposit_equip, cb_queda_pac_hospitaliza, cb_outros, ds_outros, cb_ulcera_press_durant_inter, cb_infecc_associa_assist_saude, cb_higiene_maos_inadequada, cb_higiene_precaria_pac, cb_trauma_neonato, cb_trauma_obstetrico_parto_vag, cb_trauma_obstetrico_cesariana, cb_atraso_atendime, cb_conflito, cb_evasao_pac, cb_evento_sentinela, cb_queimadura_pos_preocedi, ds_ocorrencia, como_foi_identicado, identificador, acao_tomada, pg_dano,escala_dano,identificacao_dano,sn_mt,setor_ocorrencia,dt_hr_cadastro) VALUES ('"+user+"','" + cd_paciente + "','" + nm_paciente + "','" + dt_nasc_formatada + "','" + sexo + "','" + raca_cor + "','" + setor + "','" + leito + "','" + str(dt_inter_formatada) + "','" + diagnostico + "','" + tratamento + "','" + str(dt_even_formatada) + "','" + str(dt_noti_formatada) + "','" + ck_nsp_ + "','" + ck1 + "', '" + ck2 + "', '" + ck3 +"', '" + ck4 + "', '" + ck5 + "', '" + ck6 + "', '" + ck7 + "', '" + ck8 + "', '" + ck9 + "', '" + ck10 + "', '" + ck11 + "', '" + ck12 + "', '" + ck13 + "','" + ds_outros + "' ,'" + ck14 + "', '" + ck15 + "', '" + ck16 + "', '" + ck17 + "', '" + ck18 +
+                    "', '" + ck19 + "', '" + ck20 + "', '" + ck21 + "', '" + ck22 + "', '" + ck23 + "', '" + ck24 + "', '" + ck25 + "', '" + dsc_ocorrencia + "', '" + como + "', '" + quem + "', '" + acao + "','" + pg_dano + "', '" + escala + "', '" + ident + "','" + sn_mt + "','" + setor_ocorrencia + "', NOW())")
                 if self.cb_dan.currentIndex() == 5:
                     self.enviarEmail()
                     msg = QMessageBox()
@@ -524,12 +544,12 @@ def salvarNotificacao(self):
 
                 elif self.cb_dan.currentIndex() == 3:
                         print("posicao_3")
-                        enviarEmailGrave(self)
+                        enviarEmailleve(self)
 
                 elif self.cb_dan.currentIndex() == 4:
                         print("posicao_4")
                         enviarEmailModerado(self)
-                    #
+                    
                 elif self.cb_dan.currentIndex() == 5:
                         enviarEmailGrave(self)
 
@@ -552,6 +572,11 @@ def salvarNotificacao(self):
                 msg.exec()
 
             desabilitarLimparCampos(self)
+            self.btn_usuarios.setEnabled(True)
+            self.btn_investigar.setEnabled(True)
+            self.btn_consultar.setEnabled(True)
+            self.tabWidget_2.setCurrentIndex(0)
+            self.txt_consultaNoti.clear()
 
 
 def buscarMV(self):
@@ -591,7 +616,7 @@ def buscarMV(self):
             msg.exec()
         else:
             for row in resul:
-                print(row)
+                
                 data_nascimento = str(row[3])
                 data_nascimentoA = data_nascimento[0:4]
                 data_nascimentoM = data_nascimento[6:7]
@@ -661,7 +686,7 @@ def pesquisarNotificacao(self):
                                              cb_trauma_obstetrico_cesariana, cb_atraso_atendime, cb_conflito, cb_evasao_pac,\
                                                  cb_evento_sentinela, cb_queimadura_pos_preocedi,n.ds_ocorrencia,\
                                                      n.pg_dano,n.escala_dano,n.como_foi_identicado,n.acao_tomada,n.identificador,\
-                                                        identificacao_dano,sn_mt  FROM notificacao n WHERE n.cd_notificacao = "+str(notificacao)+"")
+                                                        identificacao_dano,sn_mt,setor_ocorrencia FROM notificacao n WHERE n.cd_notificacao = "+str(notificacao)+"")
 
         cd_notificacao = notificacao
         
@@ -674,7 +699,6 @@ def pesquisarNotificacao(self):
 
         if(resul):
             for dt in resul: 
-                print(resul)             
                 
                 data_nascimento = str(dt[2])
                 data_nascimentoA = data_nascimento[0:4]
@@ -702,6 +726,7 @@ def pesquisarNotificacao(self):
                 self.cb_sex.setCurrentText(str(dt[3]))
                 self.cb_rac.setCurrentText(str(dt[4]))
                 self.cb_seto.setCurrentText(str(dt[5]))
+                self.cb_seto_2.setCurrentText(str(dt[50]))
                 self.txt_leit.setText(str(dt[6]))
                 self.dt_internacao.setDate(QtCore.QDate(int(data_internacaoA),int(data_internacaoM),int(data_internacaoD)))
                 self.txt_diagnostic.setText(str(dt[8]))
@@ -783,6 +808,7 @@ def atualizaNotificacao(self):
         tratamento = self.txt_tratamento.text()
         dt_evento = self.dt_evento.text()
         dt_notificacao = self.dt_notificacao.text()
+        setor_ocorrencia = self.cb_seto_2.currentText()
         
         if self.rb_sn.isChecked():
           sn_mt = 'SN' 
@@ -852,17 +878,19 @@ def atualizaNotificacao(self):
                         cb_fh_uso_oxig_out_gases='{}', cb_fh_manu_ident_cate_sond='{}', cb_fh_administ_nutricao='{}', cb_fh_administ_hemocomp='{}', cb_fh_administ_medicament='{}',cb_fh_transport_usuario='{}', cb_fh_procedimen_cirurgico='{}',\
                                  cb_fh_procedimen_aneste='{}', cb_fh_uso_disposit_equip='{}', cb_queda_pac_hospitaliza='{}', cb_outros='{}', ds_outros='{}', cb_ulcera_press_durant_inter='{}', cb_infecc_associa_assist_saude='{}',cb_higiene_maos_inadequada='{}',\
                                          cb_higiene_precaria_pac='{}', cb_trauma_neonato='{}', cb_trauma_obstetrico_parto_vag='{}', cb_trauma_obstetrico_cesariana='{}', cb_atraso_atendime='{}', cb_conflito='{}', cb_evasao_pac='{}', cb_evento_sentinela='{}',\
-                                                cb_queimadura_pos_preocedi='{}', ds_ocorrencia='{}', como_foi_identicado='{}', identificador='{}', acao_tomada='{}',pg_dano='{}', escala_dano='{}',identificacao_dano='{}',dt_hr_atualizacao= NOW(),user_atualiz='{}' \
+                                                cb_queimadura_pos_preocedi='{}', ds_ocorrencia='{}', como_foi_identicado='{}', identificador='{}', acao_tomada='{}',pg_dano='{}', escala_dano='{}',identificacao_dano='{}',setor_ocorrencia='{}',dt_hr_atualizacao= NOW(),user_atualiz='{}' \
                                                         WHERE  cd_notificacao ='{}'".format(setor, leito, str(dt_inter_formatada), diagnostico, tratamento, str(dt_even_formatada), str(dt_noti_formatada),sn_mt,ck_nsp_, 
                                                                                          cb_fh_identi_pac, cb_fh_comunic_pac, cb_fh_uso_oxig_out_gases, cb_fh_manu_ident_cate_sond, cb_fh_administ_nutricao, cb_fh_administ_hemocomp, cb_fh_administ_medicament, cb_fh_transport_usuario, cb_fh_procedimen_cirurgic,
                                                                                          cb_fh_procedimen_aneste, cb_fh_uso_disposit_equip, cb_queda_pac_hospitaliza, cb_outros, ds_outros, cb_ulcera_press_durant_inter, cb_infecc_associa_assist_saude, cb_higiene_maos_inadequada, cb_higiene_precaria_pac, cb_trauma_neonato,
                                                                                          cb_trauma_obstetrico_parto_vag, cb_trauma_obstetrico_cesariana, cb_atraso_atendime, cb_conflito, cb_evasao_pac, cb_evento_sentinela, cb_queimadura_pos_preocedi, ds_ocorrencia, como_foi_identicado, identificador, acao_tomada,
-                                                                                         pg_dano,escala_dano, identificacao_dano,user, notificacao ))
+                                                                                         pg_dano,escala_dano, identificacao_dano,setor_ocorrencia,user, notificacao ))
         msg = QMessageBox()
         msg.setWindowTitle("AVISO")        
         msg.setText("Dados alterados com Sucesso")
         msg.exec()
         desabilitarLimparCampos(self)
+        self.txt_consultaNoti.clear()
+        self.tabWidget_2.setCurrentIndex(0)
 
 def voltarMenu(self):
     self.stackedWidget.setCurrentWidget(self.page_6)

@@ -2,7 +2,8 @@ from PyQt5.QtWidgets import QMessageBox
 from PyQt5 import QtCore
 from FNEA.bd.conn import conexaoBD
 import datetime
-from view.principal import con
+# from FNEA.bd.conn import conexaoBD
+# from FNEA.view.principal import con
 
 def iniciarinvestigacao(self):
         global cd_notificacao
@@ -154,6 +155,7 @@ def salvarInvestigacao(self):
 
         banco =self.comboBox_2.currentText()
         con = conexaoBD(bd = banco)
+        
 
         con.manipular("INSERT INTO investigacao (cd_notificacao,investigador, pessoas, processos, amb_trabalho, materias_equipa, obs, recomendacoes,pg_o_que,pg_pq,pg_quem,pq_quando,pg_como,conclusao_time,status,dt_cad_cadastro)VALUES('"+cd_notificacao+"','"+user+"','" +
                               pessoas+"', '"+processos+"', '"+amb_trabalho+"', '"+materias_equipa+"', '"+obs+"', '"+recomendacoes+"','"+pg_o_que+"','"+pg_pq+"','"+pg_quem+"','"+pq_quando+"','"+pg_como+"','"+conclusao_time+"','Em andamento',NOW())")
@@ -164,6 +166,8 @@ def salvarInvestigacao(self):
         msg.exec()
         cancelarReabilitarCampos(self)
         self.comboBox.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
+        self.txt_paciente_3.clear()
 
 def buscarInvestigacao(self):
         global cd_notificacao
@@ -226,6 +230,24 @@ def buscarInvestigacao(self):
                         self.txt_recomendacao_3.setText(str(dt[15]))
                         self.comboBox.setCurrentText(str(dt[16]))
 
+            notificacao = self.txt_paciente_4.text()
+            resul = con.consultar("SELECT n.cd_paciente,n.nm_paciente,n.ds_ocorrencia FROM notificacao n WHERE n.cd_notificacao = "+str(notificacao)+"")
+
+            cd_notificacao = notificacao
+                
+            if resul == []:
+                        msg = QMessageBox()
+                        msg.setWindowTitle("AVISO")
+                        msg.setText("NOTIFICAÇÃO NÃO ENCONTRADA!")
+                        msg.setIcon(QMessageBox.Warning)
+                        msg.exec()
+
+            if(resul):
+                        for dt in resul:              
+                                self.txt_codPaciente.setText(str(dt[0]))
+                                self.txt_nmPaciente.setText(str(dt[1]))
+                                self.txt_resumo_ocorrencia.setText(str(dt[2]))
+
 
 def habilitarInvestigacao(self):
         
@@ -282,7 +304,28 @@ def editarInvestigacao(self):
         
         cancelarReabilitarCampos(self)
         self.btn_alterarInv_2.setEnabled(False)
+        self.txt_paciente_4.clear()
         
+def limparInvestigacao(self):
+        self.txt_paciente.clear()
+        self.txt_pessoas.clear()
+        self.txt_processos.clear()
+        self.txt_ambiente.clear()
+        self.txt_equipamentos.clear()
+        self.txt_observacao_2.clear()
+        self.txt_recomendacao_4.clear()
+        self.txt_pessoas_8.clear()
+        self.txt_pessoas_9.clear()
+        self.txt_pessoas_10.clear()
+        self.txt_pessoas_11.clear()
+        self.txt_pessoas_12.clear()
+        self.txt_recomendacao_3.clear()
+        self.txt_paciente_3.clear()
+        self.txt_codPaciente.clear()
+        self.txt_nmPaciente.clear()
+        self.txt_resumo_ocorrencia.clear()
+        self.txt_paciente_4.clear()
         
+
         
         

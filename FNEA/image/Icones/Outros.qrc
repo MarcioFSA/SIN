@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="Imagem">
+    <file>cancelar (1).png</file>
+    <file>historia.png</file>
+    <file>registro-online.png</file>
+    <file>salve-.png</file>
+    <file>registro-online.png</file>
+    <file>Dia-da-Qualidadecorte (1).png</file>
     <file>marketing-de-email (1).png</file>
     <file>user_32x32.png</file>
     <file>cadastro-branco.png</file>

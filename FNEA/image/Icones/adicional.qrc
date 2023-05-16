@@ -1,5 +1,15 @@
 <RCC>
   <qresource prefix="icones">
+    <file>investigacao.png</file>
+    <file>Peixe.jpg</file>
+    <file>password.png</file>
+    <file>cancelar (1).png</file>
+    <file>concluido.png</file>
+    <file>salve-.png</file>
+    <file>Dia-da-Qualidadecorte (1).png</file>
+    <file>historia.png</file>
+    <file>registro (1).png</file>
+    <file>registro-online.png</file>
     <file>grafico-de-setores.png</file>
     <file>nova-mensagem (1).png</file>
   </qresource>

@@ -61,6 +61,11 @@ def validarLogin(self):
                         self.btn_usuarios.setVisible(True)
                         self.btn_relatorio.setEnabled(True)
                         self.btn_usuarios.setEnabled(True)
+                        self.btn_notificar.setEnabled(True)
+                        self.btn_setor.setEnabled(True)
+                        self.btn_email.setEnabled(True)
+                        self.btn_relatorio.setEnabled(True)
+                        self.comboBox.setEnabled(True)
                         
 
                         self.stackedWidget.setCurrentWidget(self.page_6)
@@ -74,26 +79,58 @@ def validarLogin(self):
                         self.btn_investigar.setEnabled(True)
                         self.btn_consultar.setVisible(True)
                         self.comboBox.setEnabled(False)
+                        self.btn_notificar.setEnabled(True)
+                        self.btn_usuarios.setEnabled(False)
+                        self.btn_setor.setEnabled(False)
+                        self.btn_email.setEnabled(False)
+                        self.btn_relatorio.setEnabled(True)
+                        
 
                     if i == 'Investigador N2':
-                        self.stackedWidget.setCurrentWidget(self.page)
+                        self.stackedWidget.setCurrentWidget(self.page_6)
                         self.btn_dashboard.setVisible(True)
                         self.btn_dashboard.setEnabled(True)
                         self.btn_notifica.setVisible(True)
                         self.btn_investigar.setVisible(True)
                         self.btn_investigar.setEnabled(True)
                         self.btn_consultar.setVisible(True)
+                        self.comboBox.setEnabled(False)
+                        self.btn_notificar.setEnabled(True)
                         self.comboBox.setEnabled(True)
+                        
                         self.btn_relatorio.setEnabled(True)
                         self.btn_relatorio.setVisible(True)
-                        self.btn_resumo.setEnabled(True)
+                        self.btn_usuarios.setEnabled(False)
+                        self.btn_setor.setEnabled(False)
+                        self.btn_email.setEnabled(False)
+                        
                         self.comboBox.setEnabled(True)
+                    
+                        # self.stackedWidget.setCurrentWidget(self.page_6)
+                        # self.btn_dashboard.setVisible(True)
+                        # self.btn_dashboard.setEnabled(True)
+                        # self.btn_notifica.setVisible(True)
+                        # self.btn_investigar.setVisible(True)
+                        # self.btn_investigar.setEnabled(True)
+                        # self.btn_consultar.setVisible(True)
+                        # self.comboBox.setEnabled(True)
+                        # self.btn_relatorio.setEnabled(True)
+                        # self.btn_relatorio.setVisible(True)
+                        # self.btn_resumo.setEnabled(True)
+                        # self.comboBox.setEnabled(True)
+                        # self.btn_notificar.setEnabled(True)
 
                     if i == 'Notificador':
                         self.stackedWidget.setCurrentWidget(self.page_6)
                         self.btn_notifica.setVisible(True)
                         self.btn_dashboard.setVisible(True)
                         self.btn_notifica.setVisible(True)
+                        self.btn_notificar.setEnabled(True)
+                        self.btn_usuarios.setEnabled(False)
+                        self.btn_setor.setEnabled(False)
+                        self.btn_email.setEnabled(False)
+                        self.btn_relatorio.setEnabled(False)
+                        self.btn_tratativa.setEnabled(False)
 
                     else:
                         self.btn_dashboard.setVisible(True)
