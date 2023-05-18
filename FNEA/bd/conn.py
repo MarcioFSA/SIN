@@ -1,11 +1,35 @@
+
 import mysql.connector
 from mysql.connector import Error
 from PyQt5.QtWidgets import QMessageBox
+import json
 
-host="192.168.0.36"
-user="sis"
-passwd="adm@*2022"
-database="notiproducao"
+# host="192.168.0.36"
+# user="sis"
+# passwd="adm@*2022"
+# database="notiproducao"
+# # # with open("conn.txt", "r") as arquivo:
+# # #     linhas = arquivo.readlines()
+# with open("conn.txt", "r") as arquivo:
+#     linhas = arquivo.readlines()
+
+# host=linhas[0].strip()
+# port=linhas[1].strip()
+# user=linhas[2].strip()
+# passwd=linhas[3].strip()
+# database=linhas[4].strip()
+
+#####################FUNCIONAL##########################################
+with open("conn.json", "r") as arquivo:
+    dados_conexao = json.load(arquivo)
+
+host = dados_conexao["hostname"]
+port = dados_conexao["porta"]
+user = dados_conexao["user"]
+passwd = dados_conexao["passwd"]
+database = dados_conexao["database"]
+
+
 
 class conexaoBD:
     def __init__(self, host = host, usu = user, sen = passwd, bd = database):

@@ -6757,6 +6757,10 @@ class Ui_MainWindow(object):
 
     def cancelaEmail(self):
           cancelaEmail(self)
+    
+    def habilitarEdicaoEmail(self):
+            habilitarEdicao(self)
+    
     ######################################################################################################################################
     ##########################################################RNC- NÃO CONFORMIDADE###########################################
     ######################################################################################################################################
@@ -6922,7 +6926,9 @@ class Ui_MainWindow(object):
                         # Define a cor da Fonte
                         pdf.set_text_color(0,0,0)
                         #Consulta SQL
-                        dados = con.consultar("SELECT n.cd_notificacao, n.cd_paciente, n.nm_paciente, n.sexo, n.setor, DATE_FORMAT(n.dt_evento, '%d/%m/%Y'), DATE_FORMAT(n.dt_notificacao, '%d/%m/%Y') FROM notificacao as n LEFT JOIN investigacao as i ON n.cd_notificacao = i.cd_notificacao WHERE i.cd_notificacao IS NULL")
+                        # dados = con.consultar("SELECT n.cd_notificacao, n.cd_paciente, n.nm_paciente, n.sexo, n.setor, DATE_FORMAT(n.dt_evento, '%d/%m/%Y'), DATE_FORMAT(n.dt_notificacao, '%d/%m/%Y') FROM notificacao as n LEFT JOIN investigacao as i ON n.cd_notificacao = i.cd_notificacao WHERE i.cd_notificacao IS NULL")
+                        # dados = con.consultar("SELECT n.cd_notificacao, n.cd_paciente, n.nm_paciente, n.sexo, n.setor, FROM notificacao")
+                        dados = con.consultar("SELECT setor FROM notificacao")
                         #Cabeçalho
                         
                         # pdf.image('HEC.jpg', 10,8,25) # Imagem do topo da página
@@ -6944,12 +6950,12 @@ class Ui_MainWindow(object):
                         for row in dados:
                             print(row)
                             pdf.cell(15,5, str(row[0]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
-                            pdf.cell(15,5, str(row[1]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
-                            pdf.cell(50,5, str(row[2]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
-                            pdf.cell(20,5, str(row[3]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
+                        #     pdf.cell(15,5, str(row[1]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
+                        #     pdf.cell(50,5, str(row[2]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
+                        #     pdf.cell(20,5, str(row[3]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
                         #     pdf.cell(50,5, str(row[4]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
-                            pdf.cell(20,5, str(row[5]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
-                            pdf.cell(20,5, str(row[6]), ln=1,border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
+                        #     pdf.cell(20,5, str(row[5]), border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
+                        #     pdf.cell(20,5, str(row[6]), ln=1,border=True,align='C')#Tamanho do campo(Alt, larg), dado do banco, se terá borda, Alinhamento central
                         pdf.output(f'C:\\temp\\Notificações não iniciadas.pdf')
                         msg = QMessageBox()
                         msg.setIcon(QMessageBox.Critical)

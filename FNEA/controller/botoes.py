@@ -76,7 +76,7 @@ def botoes(self):
 #####################EMAIL
     self.btn_salvar_email.clicked.connect(self.inserirEmail)
     self.btn_novoEmail.clicked.connect(self.novoEmail)
-    # self.btn_editar_email.clicked.connect(self.carregarEmail)
+    self.btn_editar_email.clicked.connect(self.habilitarEdicaoEmail)
     self.btn_alterar_email.clicked.connect(self.alterarEmail)
     self.btn_excluir_email.clicked.connect(self.excluiEmail)
     self.btn_pesquisa_email.clicked.connect(self.carregarEmail)
