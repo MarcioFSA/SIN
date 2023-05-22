@@ -84,7 +84,8 @@ def botoes(self):
     
     
     
-    self.btn_Spdf_2.clicked.connect(self.pdfConsulta)
+    # self.btn_Spdf_2.clicked.connect(self.pdfConsulta)
+    self.btn_Spdf_2.clicked.connect(self.pdflimpo)
     
 
 

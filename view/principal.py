@@ -65,6 +65,8 @@ from RNC.model.consulta import*
 
 from RNC.controller.configs import*
 
+from FNEA.relatorio.modelo import*
+
 
 
 #################################################################
@@ -6849,6 +6851,32 @@ class Ui_MainWindow(object):
     
     def consultarRNCTotal(self):
           consultaRNC(self)
+          
+#     def pdfzerado(self):
+#             pdflimpo(self)
+            
+    def pdflimpo(self):
+            pdf = FPDF() 
+            pdf.add_page() 
+            pdf.set_font("Arial", size = 15) 
+            pdf.cell(200, 10, txt = "GeeksforGeeks",  
+                ln = 1, align = 'C') 
+            pdf.cell(200, 10, txt = "A Computer Science portal for geeks.", 
+                ln = 2, align = 'C') 
+            pdf.output("GFG.pdf") 
+        # pdf = FPDF('P', 'mm', 'Letter')
+        # pdf.add_page()
+    
+        # pdf.cell(60,5,"1-Código Identificador do Paciente:", border=False, align='L')
+        # pdf.cell(50,5,border=False,align='L')
+    
+            user_windows = getpass.getuser()
+            pdf.output(f'C:\\Users\\{user_windows}\\Desktop\\PDFLIMPO.pdf')# Nome do arquivo a ser salvo
+        # msg = QMessageBox()
+        # msg.setIcon(QMessageBox.Critical)
+        # msg.setWindowTitle("AVISO")
+        # msg.setText("Arquivo PDF Gerado e Salvo em seu Desktop!!")
+        # msg.exec()
 
 
 ###################################################PDF CONSULTA - FNEA################################################################
